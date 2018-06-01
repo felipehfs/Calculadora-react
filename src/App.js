@@ -16,11 +16,11 @@ class App extends Component {
     return (
       <div className="App">
         <Calculadora display={this.state.display} 
-        onClick={this.onClick.bind(this)}
-        onChange={this.onChange.bind(this)} 
-        operators={this.state.operators}
-        clear={this.clear.bind(this)} 
-        calculate={this.calculate.bind(this)}/>
+          onClick={this.onClick.bind(this)}
+          onChange={this.onChange.bind(this)} 
+          operators={this.state.operators}
+          clear={this.clear.bind(this)} 
+          calculate={this.calculate.bind(this)}/>
       </div>
     );
   }

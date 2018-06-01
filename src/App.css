@@ -9,6 +9,7 @@
 }
 html, body {
   height: 100%;
+  background: whitesmoke;
 }
 body{
   display: flex;
@@ -26,7 +27,8 @@ body{
 .grid button {
   border: none;
   margin: 1px;
-  background: darkcyan;
+  background: #008b8b;
+  cursor: pointer;
   color: white;
 }
 
@@ -39,4 +41,5 @@ body{
   border-top-right-radius: 5px;
   border: none;
   padding: 5px;
+  text-align: right;
 }

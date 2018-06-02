@@ -17,14 +17,37 @@ class App extends Component {
       <div className="App">
         <Calculadora display={this.state.display} 
           onClick={this.onClick.bind(this)}
-          onChange={this.onChange.bind(this)} 
+          onChange={this.onChange.bind(this)}
+          onSignal={this.onSignal.bind(this)} 
           operators={this.state.operators}
           clear={this.clear.bind(this)} 
+          onDel={this.onDel.bind(this)}
+          onDot={this.onDot.bind(this)}
           calculate={this.calculate.bind(this)}/>
       </div>
     );
   }
 
+  onDel(){
+    const {state} = this
+    if(state.display.length > 0){
+      let display = state.display.split('')
+      display.pop()
+      display = display.join('')
+      state.display = display
+    }
+    this.setState(state)
+  }
+  onSignal(){
+    const {state} = this 
+    state.display = '-' + state.display
+    this.setState(state)
+  }
+  onDot(){
+    const {state} = this 
+    state.display += '.'
+    this.setState(state)
+  }
   onChange(e){
     this.setState({...this.state, display: e.target.value} )
   }
@@ -35,8 +58,8 @@ class App extends Component {
   calculate(){
     const {state} = this 
     const expressao = state.display.split(' ')
-    const primeiroDigito = Number.parseInt(expressao[0])
-    const segundoDigito = Number.parseInt(expressao[2])
+    const primeiroDigito = Number.parseFloat(expressao[0])
+    const segundoDigito = Number.parseFloat(expressao[2])
     const operador = expressao[1]
     let resultado;
 

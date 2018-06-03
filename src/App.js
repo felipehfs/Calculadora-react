@@ -34,7 +34,7 @@ class App extends Component {
       let display = state.display.split('')
       display.pop()
       display = display.join('')
-      state.display = display
+      state.display = display.trim()
     }
     this.setState(state)
   }
